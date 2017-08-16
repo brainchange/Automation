@@ -23,15 +23,17 @@ ccmonth=""
 cvc=""
 cctear=""
 selection=""
+link=""
 def start_browser():
 	option = webdriver.ChromeOptions()
 	option.add_argument("--no-sandbox")
 
 	# create new instance of chrome in incognito mode
 	browser = webdriver.Chrome(executable_path='/chromedriver', chrome_options=option)
-
+	print("Link (with http) >>")
+	link=raw_input()
 	# go to website of interest
-	browser.get("http://skl.sh/2uU2sPf")
+	browser.get(link)
 def spsleep(maximum,minimum,message):
 	x=random.randint(minimum,maximum)
 	fl = fcntl.fcntl(sys.stdin.fileno(), fcntl.F_GETFL)
@@ -153,31 +155,49 @@ def add_class():
 	spsleep(15,10,"Adding Classes.. (enter any key to end sleep manually)")
 	browser.execute_script("var elems = document.getElementsByClassName('btn small bordered right btn-continue');for(var i= 0;i<elems.length;i++){elems[i].click();}")
 def open_link_and_tab():
-	browser.get("http://skl.sh/2uU2sPf")
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.execute_script("window.open();")
-	browser.execute_script("window.open();")
-	browser.execute_script("window.open();")
-	hnd=browser.window_handles
-	browser.switch_to.window(hnd[1])
-	browser.get(site1)
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.switch_to.window(hnd[2])
-	browser.get(site2)
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.switch_to.window(hnd[3])
-	browser.get(site3)
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+	i=0
+	while True:
+		i=i+1
+		print("[1] Open From Selected Accounts | [enter link] Open Link (with http) in new Tab and Play Video | [0] go back to previous step ")
+		link_tab=raw_input()
+		# go to website of interest
+		if(link_tab=="1"):
+			browser.get(link)
+			browser.find_element_by_class_name('video-player-module').click()
+			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+			browser.execute_script("window.open();")
+			browser.execute_script("window.open();")
+			browser.execute_script("window.open();")
+			hnd=browser.window_handles
+			browser.switch_to.window(hnd[1])
+			browser.get(site1)
+			browser.find_element_by_class_name('video-player-module').click()
+			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+			browser.switch_to.window(hnd[2])
+			browser.get(site2)
+			browser.find_element_by_class_name('video-player-module').click()
+			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+			browser.switch_to.window(hnd[3])
+			browser.get(site3)
+			browser.find_element_by_class_name('video-player-module').click()
+			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+			i=i+3
+		elif(link_tab=="0"):
+			break
+		else:
+			browser.execute_script("window.open();")
+			link=link_tab
+			hnd=browser.window_handles
+			browser.switch_to.window(hnd[i])
+			browser.get(link)
+			browser.find_element_by_class_name('video-player-module').click()
+			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
 while selection!="exit" or selection!="end":
 	print("===============Select Stage===========")
 	print("[1] Start Browser (Select This At Start!!)")
 	print("[2] Create Account")
 	print("[3] Select Topics and Classes")
-	print("[4] Open a link and tab")
+	print("[4] Open a links in different tabs and play video")
 	selection=int(raw_input())
 	if(selection==1):
 		start_browser()
