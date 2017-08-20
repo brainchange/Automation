@@ -28,8 +28,6 @@ option = webdriver.ChromeOptions()
 option.add_argument("--no-sandbox")
 # create new instance of chrome in incognito mode
 browser = webdriver.Chrome(executable_path='/chromedriver', chrome_options=option)
-print("Link (with http) >>")
-link=raw_input()
 # go to website of interest
 browser.get(link)
 def spsleep(maximum,minimum,message):
@@ -190,15 +188,3 @@ def open_link_and_tab():
 			browser.get(link)
 			browser.find_element_by_class_name('video-player-module').click()
 			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-while selection!="exit" or selection!="end":
-	print("===============Select Stage===========")
-	print("[1] Create Account")
-	print("[2] Select Topics and Classes")
-	print("[3] Open a links in different tabs and play video")
-	selection=int(raw_input())
-	if(selection==1):
-		sign_in_and_add_cc()
-	if(selection==2):
-		add_class()
-	if(selection==3):
-		open_link_and_tab()
