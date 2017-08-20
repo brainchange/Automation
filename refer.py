@@ -24,16 +24,14 @@ cvc=""
 cctear=""
 selection=""
 link=""
-def start_browser():
-	option = webdriver.ChromeOptions()
-	option.add_argument("--no-sandbox")
-
-	# create new instance of chrome in incognito mode
-	browser = webdriver.Chrome(executable_path='/chromedriver', chrome_options=option)
-	print("Link (with http) >>")
-	link=raw_input()
-	# go to website of interest
-	browser.get(link)
+option = webdriver.ChromeOptions()
+option.add_argument("--no-sandbox")
+# create new instance of chrome in incognito mode
+browser = webdriver.Chrome(executable_path='/chromedriver', chrome_options=option)
+print("Link (with http) >>")
+link=raw_input()
+# go to website of interest
+browser.get(link)
 def spsleep(maximum,minimum,message):
 	x=random.randint(minimum,maximum)
 	fl = fcntl.fcntl(sys.stdin.fileno(), fcntl.F_GETFL)
@@ -194,16 +192,13 @@ def open_link_and_tab():
 			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
 while selection!="exit" or selection!="end":
 	print("===============Select Stage===========")
-	print("[1] Start Browser (Select This At Start!!)")
-	print("[2] Create Account")
-	print("[3] Select Topics and Classes")
-	print("[4] Open a links in different tabs and play video")
+	print("[1] Create Account")
+	print("[2] Select Topics and Classes")
+	print("[3] Open a links in different tabs and play video")
 	selection=int(raw_input())
 	if(selection==1):
-		start_browser()
-	if(selection==2):
 		sign_in_and_add_cc()
-	if(selection==3):
+	if(selection==2):
 		add_class()
-	if(selection==4):
+	if(selection==3):
 		open_link_and_tab()
