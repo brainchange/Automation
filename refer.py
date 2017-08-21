@@ -29,8 +29,7 @@ option.add_argument("--no-sandbox")
 # create new instance of chrome in incognito mode
 browser = webdriver.Chrome(executable_path='/chromedriver', chrome_options=option)
 # go to website of interest
-print("[1] Sign Up!! (refer)")
-print("[2] Sign In!!\n")
+print("[1] Sign Up!! (refer) | [2] Sign In!!\n")
 x=int(raw_input())
 if x == 1 :
 	sign_in_and_add_cc()
@@ -67,25 +66,7 @@ else:
 	print("enter any letter after completing captcha: ")
 	x=raw_input() # complete captcha then enter any string to continue the script
 	browser.execute_script("var elems = document.getElementsByClassName('btn large full-width primary btn-login-submit');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.get(link)
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.execute_script("window.open();")
-	browser.execute_script("window.open();")
-	browser.execute_script("window.open();")
-	hnd=browser.window_handles
-	browser.switch_to.window(hnd[1])
-	browser.get(site1)
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.switch_to.window(hnd[2])
-	browser.get(site2)
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.switch_to.window(hnd[3])
-	browser.get(site3)
-	browser.find_element_by_class_name('video-player-module').click()
-	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+	open_link_and_tab()
 
 def spsleep(maximum,minimum,message):
 	x=random.randint(minimum,maximum)
