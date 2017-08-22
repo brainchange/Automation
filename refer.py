@@ -29,45 +29,6 @@ option.add_argument("--no-sandbox")
 # create new instance of chrome in incognito mode
 browser = webdriver.Chrome(executable_path='/chromedriver', chrome_options=option)
 # go to website of interest
-print("[1] Sign Up!! (refer) | [2] Sign In!!\n")
-x=int(raw_input())
-if x == 1 :
-	sign_in_and_add_cc()
-	browser.get(link)
-	add_class()
-	open_link_and_tab()
-else:
-	with open('profile.csv') as csvin:
-		readfile=csv.reader(csvin, delimiter=";")
-		i=0
-		for row in readfile:
-			if(row[8]=="1"):
-				print("["+str(i)+"]["+'|'.join(row)+"]")
-			i=i+1
-		print("Select Account: ")
-	with open('profile.csv') as csvin:
-	readfile=csv.reader(csvin, delimiter=";")
-	x=int(raw_input())
-	i=0
-	for row in readfile:
-		if(x==i):
-			email=row[2]
-			pwd=row[3]
-			site1=row[4]
-			site2=row[5]
-			site3=row[6]
-			link=row[7]
-			break	
-		i=i+1
-	browser.get("https://www.skillshare.com")
-	browser.execute_script("var elems = document.getElementsByClassName('btn small transparent initialized');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	browser.find_element_by_name('LoginForm[email]').send_keys(email)
-	browser.find_element_by_name('LoginForm[password]').send_keys(pwd)
-	print("enter any letter after completing captcha: ")
-	x=raw_input() # complete captcha then enter any string to continue the script
-	browser.execute_script("var elems = document.getElementsByClassName('btn large full-width primary btn-login-submit');for(var i= 0;i<elems.length;i++){elems[i].click();}")
-	open_link_and_tab()
-
 def spsleep(maximum,minimum,message):
 	x=random.randint(minimum,maximum)
 	fl = fcntl.fcntl(sys.stdin.fileno(), fcntl.F_GETFL)
@@ -229,3 +190,41 @@ def open_link_and_tab():
 			browser.get(link)
 			browser.find_element_by_class_name('video-player-module').click()
 			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+print("[1] Sign Up!! (refer) | [2] Sign In!!\n")
+x=int(raw_input())
+if x == 1 :
+	sign_in_and_add_cc()
+	browser.get(link)
+	add_class()
+	open_link_and_tab()
+else:
+	with open('profile.csv') as csvin:
+		readfile=csv.reader(csvin, delimiter=";")
+		i=0
+		for row in readfile:
+			if(row[8]=="1"):
+				print("["+str(i)+"]["+'|'.join(row)+"]")
+			i=i+1
+		print("Select Account: ")
+	with open('profile.csv') as csvin:
+		readfile=csv.reader(csvin, delimiter=";")
+		x=int(raw_input())
+		i=0
+		for row in readfile:
+			if(x==i):
+				email=row[2]
+				pwd=row[3]
+				site1=row[4]
+				site2=row[5]
+				site3=row[6]
+				link=row[7]
+				break	
+			i=i+1
+	browser.get("https://www.skillshare.com")
+	browser.execute_script("var elems = document.getElementsByClassName('btn small transparent initialized');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+	browser.find_element_by_name('LoginForm[email]').send_keys(email)
+	browser.find_element_by_name('LoginForm[password]').send_keys(pwd)
+	print("enter any letter after completing captcha: ")
+	x=raw_input() # complete captcha then enter any string to continue the script
+	browser.execute_script("var elems = document.getElementsByClassName('btn large full-width primary btn-login-submit');for(var i= 0;i<elems.length;i++){elems[i].click();}")
+	open_link_and_tab()
