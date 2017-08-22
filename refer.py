@@ -47,7 +47,7 @@ def spsleep(maximum,minimum,message):
     		time.sleep(1)
 		i=i+1
 def sign_in_and_add_cc():
-	with open('profile.csv') as csvin:
+	with open('/home/Automation/profile.csv') as csvin:
 		readfile=csv.reader(csvin, delimiter=";")
 		i=0
 		for row in readfile:
@@ -55,7 +55,7 @@ def sign_in_and_add_cc():
 				print("["+str(i)+"]["+'|'.join(row)+"]")
 			i=i+1
 		print("Select Account: ")
-	with open('profile.csv') as csvin:
+	with open('/home/Automation/profile.csv') as csvin:
 		readfile=csv.reader(csvin, delimiter=";")
 		x=int(raw_input())
 		i=0
@@ -71,14 +71,14 @@ def sign_in_and_add_cc():
 				link=row[7]
 				break	
 			i=i+1
-	with open('credit_card.csv') as csvin:
+	with open('/home/Automation/credit_card.csv') as csvin:
 		readfile=csv.reader(csvin, delimiter=";")
 		i=0
 		for row in readfile:
 			print("["+str(i)+"]["+'|'.join(row)+"]")
 			i=i+1
 		print("Select Credit Card: ")
-	with open('credit_card.csv') as csvin:
+	with open('/home/Automation/credit_card.csv') as csvin:
 		readfile=csv.reader(csvin, delimiter=";")
 		x=int(raw_input())
 		i=0
@@ -198,7 +198,7 @@ if x == 1 :
 	add_class()
 	open_link_and_tab()
 else:
-	with open('profile.csv') as csvin:
+	with open('/home/Automation/profile.csv') as csvin:
 		readfile=csv.reader(csvin, delimiter=";")
 		i=0
 		for row in readfile:
@@ -206,7 +206,7 @@ else:
 				print("["+str(i)+"]["+'|'.join(row)+"]")
 			i=i+1
 		print("Select Account: ")
-	with open('profile.csv') as csvin:
+	with open('/home/Automation/profile.csv') as csvin:
 		readfile=csv.reader(csvin, delimiter=";")
 		x=int(raw_input())
 		i=0
