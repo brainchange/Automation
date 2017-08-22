@@ -61,6 +61,15 @@ def sign_in_and_add_cc():
 		i=0
 		for row in readfile:
 			if(x==i):
+				global link
+				global email
+				global pwd
+				global site1
+				global site2
+				global site3
+				global fname
+				global lname
+				global link
 				fname=row[0]
 				lname=row[1]
 				email=row[2]
@@ -212,6 +221,12 @@ else:
 		i=0
 		for row in readfile:
 			if(x==i):
+				global link
+				global email
+				global pwd
+				global site1
+				global site2
+				global site3
 				email=row[2]
 				pwd=row[3]
 				site1=row[4]
