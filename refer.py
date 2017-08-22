@@ -90,6 +90,7 @@ def sign_in_and_add_cc():
 				cvc=row[3]
 				break
 			i=i+1
+	browser.get(link)
 	browser.execute_script("var elems = document.getElementsByClassName('banner-content initialized');for(var i= 0;i<elems.length;i++){elems[i].click();}")
 	inputelement=browser.find_element_by_class_name("email-prompt")
 	inputelement.click()	
@@ -194,7 +195,6 @@ print("[1] Sign Up!! (refer) | [2] Sign In!!\n")
 x=int(raw_input())
 if x == 1 :
 	sign_in_and_add_cc()
-	browser.get(link)
 	add_class()
 	open_link_and_tab()
 else:
