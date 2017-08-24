@@ -25,3 +25,43 @@ with open('/home/Automation/Acc_Info1.csv') as csvin:
 			A.append(row[5])
 			break	
 		i=i+1
+print("How many courses to choose from main link, main2 and extra links? (example: 2 1 3) ")
+a,b,c=map(int,raw_input().strip(" ").split(" "))
+with open('/home/Automation/main_links.csv') as csvin:
+	readfile=csv.reader(csvin, delimiter=";")
+	for row in readfile:
+		n=list()
+		i=0
+		no=len(row)
+		while(i<a):
+			x=random.randint(0,no-1)
+			if (x not in n):
+				A.append(row[x])
+				n.append(x)
+			i=i+1
+with open('/home/Automation/main_links2.csv') as csvin:
+	readfile=csv.reader(csvin, delimiter=";")
+	for row in readfile:
+		n=list()
+		i=0
+		no=len(row)
+		while(i<b):
+			x=random.randint(0,no-1)
+			if (x not in n):
+				A.append(row[x])
+				n.append(x)
+			i=i+1
+with open('/home/Automation/extra_links.csv') as csvin:
+	readfile=csv.reader(csvin, delimiter=";")
+	for row in readfile:
+		n=list()
+		i=0
+		no=len(row)
+		while(i<c):
+			x=random.randint(0,no-1)
+			if (x not in n):
+				A.append(row[x])
+				n.append(x)
+			i=i+1
+from string import Template
+print("")
