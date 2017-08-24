@@ -23,6 +23,7 @@ with open('/home/Automation/Acc_Info1.csv') as csvin:
 			A.append(row[3])
 			A.append(row[4])
 			A.append(row[5])
+			A.append(row[6])
 			break	
 		i=i+1
 print("How many courses to choose from main link, main2 and extra links? (example: 2 1 3) ")
@@ -63,11 +64,28 @@ with open('/home/Automation/extra_links.csv') as csvin:
 				A.append(row[x])
 				n.append(x)
 			i=i+1
-from string import Template
+import sys
+
+orig_stdout = sys.stdout
+f = open('output.html', 'w')
+sys.stdout = f
 print("<!DOCTYPE html>")
 print("<html>\n")
    
-print("<body>
-      <h1>Hello World!</h1>
+print("   <body>")
+print("      <h1>"+"Name: "+A[0]+" Email: "+A[1]+" Password: "+A[2]+"<br>CC No. : "+A[3]+"CC Expiry date: "+A[4]+"/"+A[5][2:]+" CVV: "+A[6]+"</h1>\n")
+print("      <h1>"+"<br> MAIN LINKS <br>"+"</h1>\n")
+for i in range(7,7+a):
+	print("     <a href="+A[i]+">"+A[i]+"<br></a> ")
+print("      <h1>"+"<br> MAIN LINKS 2 <br>"+"</h1>\n")
+for i in range(7+a,7+a+b):
+	print("     <a href="+A[i]+">"+A[i]+"<br></a> ")
+print("      <h1>"+"<br> EXTRA LINKS <br>"+"</h1>\n")
+for i in range(7+a+b,7+a+b+c):
+	print("     <a href="+A[i]+">"+A[i]+"<br></a> ")
 print("   </body>\n") 
 print("</html>")
+
+
+sys.stdout = orig_stdout
+f.close()
