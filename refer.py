@@ -170,6 +170,10 @@ def open_link_and_tab():
 		link_tab=raw_input()
 		# go to website of interest
 		if(link_tab=="1"):
+			global link
+			global site1
+			global site2
+			global site3
 			browser.get(link)
 			browser.find_element_by_class_name('video-player-module').click()
 			browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
@@ -194,6 +198,7 @@ def open_link_and_tab():
 			exit()
 		else:
 			browser.execute_script("window.open();")
+			global link
 			link=link_tab
 			hnd=browser.window_handles
 			browser.switch_to.window(hnd[i])
