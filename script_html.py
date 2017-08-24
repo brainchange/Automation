@@ -64,4 +64,10 @@ with open('/home/Automation/extra_links.csv') as csvin:
 				n.append(x)
 			i=i+1
 from string import Template
-print("")
+print("<!DOCTYPE html>")
+print("<html>\n")
+   
+print("<body>
+      <h1>Hello World!</h1>
+print("   </body>\n") 
+print("</html>")
