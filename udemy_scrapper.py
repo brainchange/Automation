@@ -44,8 +44,8 @@ try:
 
 	mail.ehlo()
 	mail.starttls()
-	mail.login("kaustavsmailbox21@gmail.com", "kaustav@123")
-	mail.sendmail("kaustavsmailbo21@gmail.com", "kaustavsmailbox1@gmail.com", msg.as_string())
+	mail.login("youremailid", "password")
+	mail.sendmail("youremailid@gmail.com", "targetemailid@gmail.com", msg.as_string())
 	mail.quit
 	print "Successfully sent email"
 except smtplib.SMTPException,error:
