@@ -35,6 +35,7 @@ with open('/home/Automation/udemy_acc1.csv') as csvin:
 							tag['href'] = mainsite+tag['href']
 							print(tag['href'])
 							courses.append(tag['href'])
+							courses.append(tag['href'])
 						x=x+1
 						urls.append(url+'?subscribed_courses='+str(x)+'&key=subscribed_courses')
 					else:
