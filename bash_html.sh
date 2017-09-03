@@ -81,12 +81,14 @@ for i in `seq 0 $no`;
         do
                 echo "     <a href=${A[$i]}>${A[$i]}<br></a> " >> $f
         done
+echo "      <h1><br> MAIN LINKS 2<br></h1>" >>$f
 x=${#B[@]}
 no=$((x-1))
 for i in `seq 0 $no`;
         do
                 echo "     <a href=${B[$i]}>${B[$i]}<br></a> " >> $f
         done
+echo "      <h1><br> EXTRA LINKS <br></h1>" >>$f
 x=${#C[@]}
 no=$((x-1))
 for i in `seq 0 $no`;
