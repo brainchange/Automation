@@ -94,7 +94,7 @@ done
 echo "<!DOCTYPE html>" >> $f
 echo "<html>" >> $f
 echo "   <body>" >> $f
-echo "      <h1>Name: $nm <br>Email: $eml <br>Password: $pswd<br>Profile Link: $plink <br>CC No. : $cno <br>CC Expiry date: $cmo/$cy <br>CVV: $cv</h1>" >> $f
+echo "      <h1>Name: $nm <br>Email: $eml <br>Password: $pswd<br>Profile Link: href=$plink>$plink <br>CC No. : $cno <br>CC Expiry date: $cmo/$cy <br>CVV: $cv</h1>" >> $f
 echo "      <h1><br> MAIN LINKS <br></h1>" >> $f
 x=${#A[@]}
 no=$((x-1))
