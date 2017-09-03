@@ -8,6 +8,7 @@ cno=""
 cmo=""
 cy=""
 cv="" 
+f=$(mktemp XXXXXXXXXX.html)
 echo "---name---|------email------|---password---|-------ccno-------|--ccmo--|--ccy--|-cvv-|"
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 i=1
@@ -69,28 +70,29 @@ do
   C+=(${ADDR2[$number]})
   let "count += 1"  # Increment count.
 done
-echo "<!DOCTYPE html>" >> output_bash.html
-echo "<html>\n" >> output_bash.html
-echo "   <body>" >> output_bash.html
-echo "      <h1>Name: $nm Email: $eml Password: $pswd<br>CC No. : $cno CC Expiry date: $cmo/$cy CVV: $cv</h1>" >> output_bash.html
-echo "      <h1><br> MAIN LINKS <br></h1>" >> output_bash.html
+echo "<!DOCTYPE html>" >> $f
+echo "<html>\n" >> $f
+echo "   <body>" >> $f
+echo "      <h1>Name: $nm Email: $eml Password: $pswd<br>CC No. : $cno CC Expiry date: $cmo/$cy CVV: $cv</h1>" >> $f
+echo "      <h1><br> MAIN LINKS <br></h1>" >>$f
 x=${#A[@]}
 no=$((x-1))
 for i in `seq 0 $no`;
         do
-                echo "     <a href=${A[$i]}>${A[$i]}<br></a> " >> output_bash.html
+                echo "     <a href=${A[$i]}>${A[$i]}<br></a> " >> $f
         done
 x=${#B[@]}
 no=$((x-1))
 for i in `seq 0 $no`;
         do
-                echo "     <a href=${B[$i]}>${B[$i]}<br></a> " >> output_bash.html
+                echo "     <a href=${B[$i]}>${B[$i]}<br></a> " >> $f
         done
 x=${#C[@]}
 no=$((x-1))
 for i in `seq 0 $no`;
         do
-                echo "     <a href=${C[$i]}>${C[$i]}<br></a> " >> output_bash.html
+                echo "     <a href=${C[$i]}>${C[$i]}<br></a> " >> $f
         done
-echo "   </body>" >> output_bash.html
-echo "</html>" >> output_bash.html
+echo "   </body>" >> $f
+echo "</html>" >> $f
+google-chrome --no-sandbox /home/Automation/$f
