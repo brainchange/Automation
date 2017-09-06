@@ -1,6 +1,6 @@
 INPUT=Acc_Info1.csv
 OLDIFS=$IFS
-IFS=","
+IFS=";"
 nm=""
 eml=""
 pswd=""
@@ -9,9 +9,8 @@ cmo=""
 cy=""
 cv="" 
 f=$(mktemp XXXXXXXXXX.html)
-echo "---name---|------email------|---password---|-------ccno-------|--ccmo--|--ccy--|-cvv-|"
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
-i=1
+i=0
 while read name email password ccno ccmo ccy cvv
 do
 	echo "[$i]|$name|$email|$password|$ccno|$ccmo|$ccy|$cvv|"
@@ -19,10 +18,10 @@ do
 done < $INPUT
 IFS=$OLDIFS
 read -p "Choose Account: " x
-i=1
+i=0
 INPUT=Acc_Info1.csv
 OLDIFS=$IFS
-IFS=","
+IFS=";"
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 while read name email password ccno ccmo ccy cvv
 do
@@ -73,7 +72,7 @@ done
 echo "<!DOCTYPE html>" >> $f
 echo "<html>\n" >> $f
 echo "   <body>" >> $f
-echo "      <h1>Name: $nm Email: $eml Password: $pswd<br>CC No. : $cno CC Expiry date: $cmo/$cy CVV: $cv</h1>" >> $f
+echo "      <h1>Name: $nm <br>Email: $eml <br>Password: $pswd<br>CC No. : $cno <br>CC Expiry date: $cmo/$cy <br>CVV: $cv</h1>" >> $f
 echo "      <h1><br> MAIN LINKS <br></h1>" >>$f
 x=${#A[@]}
 no=$((x-1))
