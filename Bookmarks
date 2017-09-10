@@ -1,0 +1,47 @@
+{
+   "checksum": "f35a7a7c9ef7f5faa9f0c1d3a997d374",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ 
+	{
+            "date_added": "13148808436576800",
+            "id": "6",
+            "name": "ggg",
+            "type": "url",
+            "url": "chrome://newtab/"
+         }, {
+            "date_added": "13148808467773855",
+            "id": "9",
+            "meta_info": {
+               "last_visited_desktop": "13148808468000420"
+            },
+            "name": "Facebook – log in or sign up",
+            "type": "url",
+            "url": "https://www.facebook.com/"
+         } ],
+         "date_added": "13145433161506591",
+         "date_modified": "13148808467773855",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13145433161506596",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "sync_transaction_version": "1",
+      "synced": {
+         "children": [  ],
+         "date_added": "13145433161506597",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
